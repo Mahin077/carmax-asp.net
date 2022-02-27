@@ -119,6 +119,12 @@ namespace carmax.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+        public ActionResult Team()
+        {
+            List<teammember> team = db.teammembers.ToList();
+            return View(team);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

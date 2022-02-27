@@ -184,12 +184,14 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Homepage.css" />
+    <Content Include="Content\teamPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\one.jpg" />
     <Content Include="Images\three.jpg" />
     <Content Include="Images\two.jpg" />
+    <Content Include="Images\unnamed.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -283,6 +285,7 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Home\Cars.cshtml" />
     <Content Include="Views\Home\SpecialOffers.cshtml" />
+    <Content Include="Views\Home\Team.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
