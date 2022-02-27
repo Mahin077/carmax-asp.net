@@ -4,121 +4,140 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Cars</h2>
-<div class="container">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.max_power)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.seating_capacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.body_type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.fuel_type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.no_of_cylinder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.engine_type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.engine_displacement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.img)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.discount)
-            </th>
-            <th></th>
-        </tr>
+<head>
+    <link rel="stylesheet" href="~/Content/allCars.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/664672c985.js" crossorigin="anonymous"></script>
+</head>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.max_power)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.seating_capacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.body_type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fuel_type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.no_of_cylinder)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.color)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.engine_type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.engine_displacement)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.type)
-                </td>
-                <td>
-                    <img src="@Url.Content(item.img)" width="50" height="50" class="img-rounded" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.brand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.year)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.discount)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
-            </tr>
-        }
+<body>
+    <h2 class="text-center mt-5"><span class="text-primary">All</span> <span class="text-danger"> Cars</span></h2>
+    <div class="container">
+        <button class="add-btn btn btn-outline-success">
+            <i class="fa-solid fa-circle-plus text-black"></i>
+            @Html.ActionLink("Add New Car", "Create")
+        </button>
 
-    </table>
-</div>
+        <div class="table-responsive mt-3">
+            <table class="table table-dark align-middle table-bordered table-striped table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.max_power)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.seating_capacity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.body_type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fuel_type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.no_of_cylinder)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.color)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.engine_type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.engine_displacement)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.img)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.brand)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.year)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.discount)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.max_power)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.seating_capacity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.body_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fuel_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.no_of_cylinder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.color)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.engine_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.engine_displacement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.type)
+                        </td>
+                        <td>
+                            <img src="@Url.Content(item.img)" width="50" height="50" class="img-rounded" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.discount)
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2">
+                                <button class="edit btn btn-danger text-white" type="button">@Html.ActionLink("Edit", "Edit", new { id = item.id })</button>
+                                <button class="delete btn btn-danger text-white" type="button">@Html.ActionLink("Delete", "Delete", new { id = item.id })</button>
+                            </div>
+                            
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+       
+    </div>
+</body>

@@ -1,0 +1,13 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Images/projectImages/allCar1.jpg);
+    background-repeat: no-repeat;
+}
+button a, button a:hover{
+    text-decoration: none;
+    color: black;
+}
+.edit a, .delete a, .edit a:hover, .delete a:hover {
+    color: white;
+}
+

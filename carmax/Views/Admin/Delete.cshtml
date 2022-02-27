@@ -4,150 +4,158 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Delete.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Car</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+<body>
+    <h3 class="text-center text-danger mt-3">Are you sure you want to delete this car?</h3>
+    <div class="card rounded-3 border-0 shadow-lg mt-3">
+        <div class="card-body mx-auto" style="width: 700px;">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.price)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.price)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.max_power)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.max_power)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.max_power)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.max_power)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.seating_capacity)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.seating_capacity)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.seating_capacity)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.seating_capacity)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.body_type)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.body_type)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.body_type)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.body_type)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fuel_type)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fuel_type)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fuel_type)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.fuel_type)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.no_of_cylinder)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.no_of_cylinder)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.no_of_cylinder)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.no_of_cylinder)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.color)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.color)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.color)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.color)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.engine_type)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.engine_type)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.engine_type)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.engine_type)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.engine_displacement)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.engine_displacement)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.engine_displacement)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.engine_displacement)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.type)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.type)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.type)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.type)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.brand)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.img)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.brand)
+                        </dd>
 
-        <dd>
-            <img src="@Url.Content(Model.img)" width="50" height="50" class="img-rounded" />
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.model)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.brand)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.model)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.brand)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.year)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.model)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.year)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.model)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.discount)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.year)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.discount)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.year)
-        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <img src="@Url.Content(Model.img)" class="cardImg img-thumbnail img-fluid img-rounded" />
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.discount)
-        </dt>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.discount)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <button type="button" class="btn btn-dark listBtn">
+                        @Html.ActionLink("Back to List", "Index")
+                    </button>
+                </div>
+            }
         </div>
-    }
-</div>
+    </div>
+
+</body>
