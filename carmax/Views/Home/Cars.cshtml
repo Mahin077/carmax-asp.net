@@ -1,0 +1,39 @@
+﻿@model IEnumerable<carmax.Models.product>
+@{
+    ViewBag.Title = "Cars";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Homepage.css">
+</head>
+<div class="container">
+    <div style="margin-top:100px ;" class="row">
+
+        @foreach (var item in Model)
+        {
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+
+        <form action="#" method="GET">
+
+            <div class="card " style="width: 18rem;margin:auto;">
+                <img src="@Url.Content(item.img)" class="card-img-top" alt="..." height="200px">
+                <div class="card-body mt-5">
+                    <h5 class="card-title">@item.name</h5>
+                    <p class="card-text" style="font-weight: bold;">
+                        Price : <b>&#2547;</b> @item.price
+
+                    </p>
+
+
+                    <button type="submit" class="btnn2" name="enter_search" style="width: 100%;">Details</button>
+                    <input type="hidden" name="_id" value="@item.id">
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+        }
+    </div>
+</div>
+

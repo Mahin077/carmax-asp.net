@@ -1,0 +1,124 @@
+﻿@model IEnumerable<carmax.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Cars</h2>
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.max_power)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seating_capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.body_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuel_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_cylinder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.engine_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.engine_displacement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.max_power)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seating_capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.body_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fuel_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.no_of_cylinder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.engine_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.engine_displacement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.img)" width="50" height="50" class="img-rounded" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

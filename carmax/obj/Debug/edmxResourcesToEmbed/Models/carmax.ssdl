@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="carmaxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="contactus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="message" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="10" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order_cars">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="car_id" Type="int" Nullable="false" />
+    <Property Name="car_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="car_price" Type="float" Nullable="false" />
+    <Property Name="time" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="max_power" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="seating_capacity" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="body_type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fuel_type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="no_of_cylinder" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="engine_type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="engine_displacement" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="img" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="brand" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="year" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="discount" Type="int" />
+  </EntityType>
+  <EntityType Name="teammembers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="images" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="link1" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="link2" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__order_car__car_i__412EB0B6">
+    <End Role="products" Type="Self.products" Multiplicity="1" />
+    <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order_cars">
+        <PropertyRef Name="car_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__order_car__user___403A8C7D">
+    <End Role="login" Type="Self.login" Multiplicity="1" />
+    <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="login">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order_cars">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="carmaxModelStoreContainer">
+    <EntitySet Name="contactus" EntityType="Self.contactus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="order_cars" EntityType="Self.order_cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teammembers" EntityType="Self.teammembers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__order_car__car_i__412EB0B6" Association="Self.FK__order_car__car_i__412EB0B6">
+      <End Role="products" EntitySet="products" />
+      <End Role="order_cars" EntitySet="order_cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__order_car__user___403A8C7D" Association="Self.FK__order_car__user___403A8C7D">
+      <End Role="login" EntitySet="login" />
+      <End Role="order_cars" EntitySet="order_cars" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
