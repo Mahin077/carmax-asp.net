@@ -1,0 +1,9 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Images/projectImages/allCar1.jpg);
+    background-repeat: no-repeat;
+}
+.listBtn a, .listBtn{
+    text-decoration: none;
+    color: white;
+}  

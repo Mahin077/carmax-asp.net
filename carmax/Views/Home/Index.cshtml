@@ -100,14 +100,11 @@
 
                     <form action="#" method="GET">
 
-                        <div class="card " style="width:325px;">
-                            <img src="@Url.Content(item.img)" class="card-img-top" alt="..." style="height: 200px">
+                        <div class="card rounded-3" style="width:325px;">
+                            <img src="@Url.Content(item.img)" class="card-img-top p-3" alt="..." style="height: 200px">
                             <div class="card-body mt-5">
-                                <h5 class="card-title">@item.name</h5>
-                                <p class="card-text" style="font-weight: bold;">
-                                    Price : &#2547; @item.price
-
-                                </p>
+                                <h2 class="card-title">@item.name</h2>
+                                <h6 class="card-text fw-bolder">Price : &#2547; @item.price</h6>
                                 <button type="submit" class="btnn2" name="enter">Details</button>
                                 <input type="hidden" name="_id" value="@item.id">
                                 <input type="hidden" name="_tbl" value="@item.type">
@@ -124,7 +121,7 @@
         </div>
 
         <div class="container mt-5" style="padding-top: 10px;">
-            <a style="padding-top: 10px;margin-bottom:50px" href="#" class="btnn3">See All Vehicles</a>
+            <a href="#" class="text-center btnn3">See All Vehicles</a>
         </div>
     </section>
 
