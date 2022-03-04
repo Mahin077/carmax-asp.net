@@ -74,8 +74,15 @@ namespace carmax.Controllers
                     Session["username"] = i.username;
                     Session["userType"] = i.type;
                 }
-
-                return RedirectToAction("Index");
+                if (Session["userType"].Equals("admin"))
+                {
+                    return RedirectToAction("Index","admin");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+                   
             }
             else
             {
@@ -93,7 +100,8 @@ namespace carmax.Controllers
                 {
                     ViewBag.Message = TempData["msg"].ToString();
                 }
-                return View("Login");
+                return View("login");
+                    
             }
             else
             {
