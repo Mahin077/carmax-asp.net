@@ -146,5 +146,39 @@ namespace carmax.Controllers
 
             return View();
         }
+        public ActionResult PostDetails(int _id)
+        {
+            product id = db.products.Find(_id);
+            return View(id);
+        }
+        [HttpPost, ActionName("Order")]
+        public ActionResult Order(int id, string name, double price)
+        {
+            if (Session["username"] == null)
+            {
+                if (TempData["msg"] != null)
+                {
+                    ViewBag.Message = TempData["msg"].ToString();
+                }
+                return View("login");
+
+            }
+            else
+            {
+                var time = DateTime.Now;
+                order_cars ordr = new order_cars();
+                ordr.user_id = (int)Session["userid"];
+                ordr.email = (string)Session["email"];
+                ordr.phone = (string)Session["phone"];
+                ordr.car_id = id;
+                ordr.car_name = name;
+                ordr.car_price = price;
+                ordr.time = time.ToString();
+                db.order_cars.Add(ordr);
+                db.SaveChanges();
+                return Content("Your order has been placed");
+            }
+        }
+
     }
 }

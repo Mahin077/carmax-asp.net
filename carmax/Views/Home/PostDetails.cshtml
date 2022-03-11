@@ -1,0 +1,144 @@
+﻿
+@model carmax.Models.product
+@{
+    ViewBag.Title = "PostDetails";
+}
+
+<head>
+
+
+    <link rel="stylesheet" href="~/Content/Homepage.css">
+
+</head>
+
+<body>
+
+    <div class="container" style="margin-top: 80px;margin-bottom:80px;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);border-radius:5px;">
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img class="card-img" src="@Url.Content(Model.img)" alt="Card image" style="padding-left:10px;padding-right:10px;" height="430px">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h3 class="card-title" style="text-align: center;">@Model.name</h3>
+                        <ul class="list-group list-group-flush" style="margin-top: 30px;">
+                            <li class="list-group-item d-inline-flex">
+                                <p class="card-text" style="font-size:20px;font-weight:bolder;margin-right:50px;">Brand:</p>
+                                <p class="card-text" style="font-size:20px;">@Model.brand</p>
+                            </li>
+                            <li class="list-group-item d-inline-flex">
+                                <p class="card-text" style="font-size:20px;font-weight:bolder;margin-right:46px;">Model:</p>
+                                <p class="card-text" style="font-size:20px;">@Model.model</p>
+                            </li>
+                            <li class="list-group-item d-inline-flex">
+                                <p class="card-text" style="font-size:20px;font-weight:bolder;margin-right:66px;">Year:</p>
+                                <p class="card-text" style="font-size:20px;">@Model.year</p>
+                            </li>
+
+                            <li class="list-group-item d-inline-flex">
+                                <p class="card-text" style="font-size:20px;font-weight:bolder;margin-right:60px;">Price:</p>
+
+                                @if (Model.type == "normal")
+                                {
+                                    <p class="card-text" style="font-size:20px;font-weight: bold;color:red;">@Model.price tk</p>
+                                }
+                                else
+                                {
+
+                                    <p class="card-text" style="font-size:20px;margin-right:10px;font-weight: bold;text-decoration: line-through;">@Model.price tk</p>
+                                    <p class="card-text" style="font-size:20px;font-weight: bold;color:red;">@(Convert.ToDouble(@Model.price) - (Convert.ToDouble(@Model.price)*(Convert.ToDouble(@Model.discount)/100))) tk</p>
+                                }
+
+
+
+                            </li>
+                        </ul>
+
+
+
+                        <form action="/home/Order" method="POST" class="">
+                            <div class="input-group d-flex justify-content-center" style="margin-top: 30px;">
+                                <form action="/home/Order" method="POST">
+                                    <button name="submit_car" class="btn btn-primary btn-lg" style="width: 390px;">Buy Now</button>
+                                    <input type="hidden" name="id" value="@Model.id" />
+                                    <input type="hidden" name="name" value="@Model.name" />
+                                    @if (Model.type == "normal")
+                                    {
+                                        <input type="hidden" name="price" value="@Model.price" />
+
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="price" value="@(Convert.ToDouble(@Model.price) - (Convert.ToDouble(@Model.price)*(Convert.ToDouble(@Model.discount)/100)))" />
+                                    }
+                                </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" style="text-align: center;font-size:20px;font-weight:bold;">
+                About This Car
+            </div>
+            <ul class="list-group list-group-flush" style="font-size:20px;">
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 130px;font-weight:bolder;">Max Power</label>
+                    <p>@Model.max_power</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 80px;font-weight:bolder;">Seating Capacity</label>
+                    <p>@Model.seating_capacity</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 140px;font-weight:bolder;">Body Type</label>
+                    <p>@Model.body_type</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 150px;font-weight:bolder;">Fuel Type</label>
+                    <p>@Model.fuel_type</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 99px;font-weight:bolder;">No. of Cylinder</label>
+                    <p>@Model.no_of_cylinder</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 192px;font-weight:bolder;">Color</label>
+                    <p>@Model.color</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 129px;font-weight:bolder;">Engine Type</label>
+                    <p>@Model.engine_type</p>
+
+                </li>
+                <li class="list-group-item d-inline-flex" style="text-align: center;">
+
+                    <label style="margin-right: 46px;font-weight:bolder;">Engine Displacement</label>
+                    <p>@Model.engine_displacement</p>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+

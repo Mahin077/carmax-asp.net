@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" href="~/Content/all.min.css">
+    <link rel="stylesheet" href="~/Content/footer.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -44,13 +46,13 @@
                             <a class="nav-link" href="/home/SpecialOffers">Special offers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="/home/Contact">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/home/Team">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="/home/About">About Us</a>
                         </li>
                     }
                     @if (Session["username"] == null)
@@ -80,13 +82,71 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+            <footer class="footer">
+                <div class="l-footer">
+                    <h1>
+                        <img src="~/Images/logo.png" class="img-fluid rounded " style="max-width:20%;" alt="">
+                    </h1>
+                    <p><b style="color: red;">CarMax</b> is a family company, one that spans the globe and has shared ideals. We value service to each other and the world as much as to our customers.</p>
+                </div>
+
+                <ul class="r-footer">
+                    <li>
+                        <h2>Follow Us</h2>
+                        <ul class="box">
+
+
+
+
+
+                            <li><a target="_blank" href="https://www.facebook.com/"><i style="color:  #149279;" class="fab fa-facebook-f"></i> Facebook</a>
+                            <li><a target="_blank" href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"><i style="color:  #149279;" class="fab fa-twitter"></i> Twitter</a>
+                            <li><a target="_blank" href="https://www.instagram.com/accounts/login/"><i style="color:  #149279;" class="fab fa-instagram"></i> Instagram</a>
+                            <li><a target="_blank" href="https://www.linkedin.com/login"><i style="color:  #149279;" class="fab fa-linkedin-in"></i> Linkedin</a>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="features">
+                        <h2>
+                            Quick Links
+                        </h2>
+                        <ul class="box h-box">
+
+
+                            <li>
+                                <a href="/home/SpecialOffers">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="/home/About">About Us</a>
+                            </li>
+                            <li>
+                                <a href="/home/Team">Team</a>
+                            </li>
+                            <li>
+                                <a href="/home/Contact">Contact Us</a>
+                            </li>
+
+
+                        </ul>
+
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+                <p class="text-center">All rights reserved by <span><b style="color: red;">©CarMax </b></span>@DateTime.Now.Year </p>
+            </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
+
 </body>
 </html>

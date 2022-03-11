@@ -67,7 +67,7 @@
     <Property Name="link1" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="link2" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK__order_car__car_i__52593CB8">
+  <Association Name="FK__order_car__car_i__412EB0B6">
     <End Role="products" Type="Self.products" Multiplicity="1" />
     <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
     <ReferentialConstraint>
@@ -79,7 +79,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__order_car__user___5165187F">
+  <Association Name="FK__order_car__user___403A8C7D">
     <End Role="login" Type="Self.login" Multiplicity="1" />
     <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
     <ReferentialConstraint>
@@ -97,11 +97,11 @@
     <EntitySet Name="order_cars" EntityType="Self.order_cars" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="teammembers" EntityType="Self.teammembers" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__order_car__car_i__52593CB8" Association="Self.FK__order_car__car_i__52593CB8">
+    <AssociationSet Name="FK__order_car__car_i__412EB0B6" Association="Self.FK__order_car__car_i__412EB0B6">
       <End Role="products" EntitySet="products" />
       <End Role="order_cars" EntitySet="order_cars" />
     </AssociationSet>
-    <AssociationSet Name="FK__order_car__user___5165187F" Association="Self.FK__order_car__user___5165187F">
+    <AssociationSet Name="FK__order_car__user___403A8C7D" Association="Self.FK__order_car__user___403A8C7D">
       <End Role="login" EntitySet="login" />
       <End Role="order_cars" EntitySet="order_cars" />
     </AssociationSet>
