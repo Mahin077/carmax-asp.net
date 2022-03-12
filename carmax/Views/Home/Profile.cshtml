@@ -54,10 +54,14 @@
 
 
 
-    <div class="container">
-        <p>Previous ordered cars</p>
-        <a href="/home/previousOrderedCars">CLick here</a>
-    </div>
+    @if (Session["userType"] != null && Session["userType"].Equals("normal"))
+    {
+        <div class="container">
+            <p>Previous ordered cars</p>
+            <a href="/home/previousOrderedCars">CLick here</a>
+        </div>
+    }
+
 
 </body>
 

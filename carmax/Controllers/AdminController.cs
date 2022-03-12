@@ -147,5 +147,28 @@ namespace carmax.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult Order()
+        {
+            if (Session["userType"] != null && Session["userType"].Equals("admin"))
+            {
+                List<order_cars> order = db.order_cars.ToList();
+                return View(order);
+            }
+            else
+            {
+                return Content("Please log in as Admin to use the url!");
+            }
+        }
+        [HttpPost]
+       
+        public ActionResult carDetailsChange(int car_id,int user_id)
+        {
+            var user = db.order_cars.Where(s => s.user_id==user_id && s.car_id==car_id).FirstOrDefault();
+            user.details = "confirmed";
+            db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Order");
+        }
     }
 }

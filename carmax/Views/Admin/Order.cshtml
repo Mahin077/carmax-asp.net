@@ -1,0 +1,44 @@
+﻿@model IEnumerable<carmax.Models.order_cars>
+@{
+    ViewBag.Title = "Order";
+}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User Email</th>
+                <th scope="col">User Phone</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Car Price</th>
+                <th scope="col">Ordered Date</th>
+                <th scope="col">Details</th>
+                <th scope="col">Button</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.car_name</td>
+                <td>@item.car_price</td>
+                <td>@item.time</td>
+                <td>@item.details</td>
+                <td>
+                    <form action="/admin/carDetailsChange" method="post">
+                        <input type="hidden" name="car_id" value="@item.car_id" />
+                        <input type="hidden" name="user_id" value="@item.user_id" />
+                        <button name="edit" class="btn btn-success btn-lg btn-block">Edit</button>
+                    </form>
+                </td>
+               
+            </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
+

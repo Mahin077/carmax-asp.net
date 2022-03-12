@@ -12,7 +12,10 @@ namespace carmax.Controllers
         carmaxEntities1 db = new carmaxEntities1();
         public ActionResult Index()
         {
-            
+            if(Session["userType"] != null && Session["userType"].Equals("admin"))
+            {
+                return RedirectToAction("Index", "admin");
+            }
             List<product> car = db.products.Take(3).ToList();
 
             return View(car);
@@ -180,6 +183,7 @@ namespace carmax.Controllers
                 ordr.car_name = name;
                 ordr.car_price = price;
                 ordr.time = time.ToString();
+                ordr.details = "pending";
                 db.order_cars.Add(ordr);
                 db.SaveChanges();
                 return Content("Your order has been placed");
