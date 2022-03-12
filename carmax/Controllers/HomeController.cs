@@ -100,17 +100,18 @@ namespace carmax.Controllers
 
             if (Session["username"] == null)
             {
-                if(TempData["msg"]!=null)
+                if (TempData["msg"] != null)
                 {
                     ViewBag.Message = TempData["msg"].ToString();
                 }
-                return View("login");
-                    
             }
             else
             {
-                return Content("The url does not exist");
+                ViewBag.Messag = "already logged in";
             }
+                return View("login");
+                    
+
         }
 
         public ActionResult Cars()
