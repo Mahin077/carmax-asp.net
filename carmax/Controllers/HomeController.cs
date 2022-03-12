@@ -104,13 +104,14 @@ namespace carmax.Controllers
                 {
                     ViewBag.Message = TempData["msg"].ToString();
                 }
+                return View("login");
+
             }
             else
             {
-                ViewBag.Messag = "already logged in";
+                return Content("The url does not exist");
             }
-                return View("login");
-                    
+
 
         }
 
@@ -276,6 +277,18 @@ namespace carmax.Controllers
         {
             Session.Clear();
             return RedirectToAction("Index");
+        }
+
+        
+        public ActionResult previousOrderedCars()
+        {
+            if(Session["userid"]==null)
+            {
+                return RedirectToAction("Login");
+            }
+            int id = (int)Session["userid"];
+            List<order_cars> oCars = db.order_cars.Where(o=> o.user_id == id).ToList();
+            return View(oCars);
         }
 
     }

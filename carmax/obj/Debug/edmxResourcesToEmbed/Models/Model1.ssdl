@@ -32,6 +32,7 @@
     <Property Name="car_name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="car_price" Type="float" Nullable="false" />
     <Property Name="time" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="details" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="products">
     <Key>

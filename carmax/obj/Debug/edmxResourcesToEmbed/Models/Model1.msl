@@ -34,6 +34,7 @@
           <ScalarProperty Name="car_name" ColumnName="car_name" />
           <ScalarProperty Name="car_price" ColumnName="car_price" />
           <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="details" ColumnName="details" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

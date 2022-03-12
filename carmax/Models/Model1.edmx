@@ -37,6 +37,7 @@
           <Property Name="car_name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="car_price" Type="float" Nullable="false" />
           <Property Name="time" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="details" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="products">
           <Key>
@@ -149,6 +150,7 @@
           <Property Name="car_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="car_price" Type="Double" Nullable="false" />
           <Property Name="time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="details" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="login" Relationship="Self.FK__order_car__user___5165187F" FromRole="order_cars" ToRole="login" />
           <NavigationProperty Name="product" Relationship="Self.FK__order_car__car_i__52593CB8" FromRole="order_cars" ToRole="products" />
         </EntityType>
@@ -265,6 +267,7 @@
                 <ScalarProperty Name="car_name" ColumnName="car_name" />
                 <ScalarProperty Name="car_price" ColumnName="car_price" />
                 <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="details" ColumnName="details" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

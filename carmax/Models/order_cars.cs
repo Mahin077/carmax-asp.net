@@ -22,6 +22,7 @@ namespace carmax.Models
         public string car_name { get; set; }
         public double car_price { get; set; }
         public string time { get; set; }
+        public string details { get; set; }
     
         public virtual login login { get; set; }
         public virtual product product { get; set; }
