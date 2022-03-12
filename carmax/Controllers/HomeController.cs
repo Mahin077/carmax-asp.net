@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -207,7 +208,74 @@ namespace carmax.Controllers
             return View();
         }
 
+        public ActionResult Profile()
+        {
+            if (Session["userid"] != null)
+            {
+                if (TempData["msg2"] != null)
+                {
+                    ViewBag.Message = TempData["msg2"].ToString();
+                }
+                login user = db.logins.Find(Session["userid"]);
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult Profile(string username, string email, string phone, string cpassword, string npassword)
+        {
 
+            System.Security.Cryptography.MD5CryptoServiceProvider test123 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(cpassword);
+            data = test123.ComputeHash(data);
+            String cPassword = System.Text.Encoding.ASCII.GetString(data);
+            string databasePass = db.logins.Where(temp => temp.email.Equals(email)).Select(o => o.password).FirstOrDefault();
+            var user = db.logins.Where(s => s.email.Equals(email)).FirstOrDefault();
+            if (databasePass == cPassword)
+            {
+                if (npassword == "")
+                {
+                    user.username = username;
+                    user.email = email;
+                    user.phone = phone;
+                    user.password = cPassword;
+
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Profile");
+                }
+                else
+                {
+
+                    byte[] data1 = System.Text.Encoding.ASCII.GetBytes(npassword);
+                    data1 = test123.ComputeHash(data1);
+                    String nPassword = System.Text.Encoding.ASCII.GetString(data1);
+                    user.username = username;
+                    user.email = email;
+                    user.phone = phone;
+                    user.password = nPassword;
+
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Profile");
+                }
+
+            }
+            else
+            {
+                TempData["msg2"] = "Password incorrect!";
+                return RedirectToAction("Profile");
+            }
+
+        }
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
 
     }
 }

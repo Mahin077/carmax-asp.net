@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="33a744f7b4a94b69abe3f4b0dfebc371" Name="Diagram1">
+      <Diagram DiagramId="5fd29c1e9f1b4f65a9ac2f78fea68698" Name="Diagram1">
         <EntityTypeShape EntityType="carmaxModel.contactu" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="carmaxModel.login" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="carmaxModel.order_cars" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="carmaxModel.product" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="carmaxModel.teammember" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="carmaxModel.FK__order_car__user___403A8C7D" ManuallyRouted="false" />
-        <AssociationConnector Association="carmaxModel.FK__order_car__car_i__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="carmaxModel.FK__order_car__user___5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="carmaxModel.FK__order_car__car_i__52593CB8" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

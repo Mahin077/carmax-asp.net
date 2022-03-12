@@ -72,7 +72,7 @@
           <Property Name="link1" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="link2" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <Association Name="FK__order_car__car_i__412EB0B6">
+        <Association Name="FK__order_car__car_i__52593CB8">
           <End Role="products" Type="Self.products" Multiplicity="1" />
           <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -84,7 +84,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__order_car__user___403A8C7D">
+        <Association Name="FK__order_car__user___5165187F">
           <End Role="login" Type="Self.login" Multiplicity="1" />
           <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -102,11 +102,11 @@
           <EntitySet Name="order_cars" EntityType="Self.order_cars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="teammembers" EntityType="Self.teammembers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__order_car__car_i__412EB0B6" Association="Self.FK__order_car__car_i__412EB0B6">
+          <AssociationSet Name="FK__order_car__car_i__52593CB8" Association="Self.FK__order_car__car_i__52593CB8">
             <End Role="products" EntitySet="products" />
             <End Role="order_cars" EntitySet="order_cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__order_car__user___403A8C7D" Association="Self.FK__order_car__user___403A8C7D">
+          <AssociationSet Name="FK__order_car__user___5165187F" Association="Self.FK__order_car__user___5165187F">
             <End Role="login" EntitySet="login" />
             <End Role="order_cars" EntitySet="order_cars" />
           </AssociationSet>
@@ -135,7 +135,7 @@
           <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="order_cars" Relationship="Self.FK__order_car__user___403A8C7D" FromRole="login" ToRole="order_cars" />
+          <NavigationProperty Name="order_cars" Relationship="Self.FK__order_car__user___5165187F" FromRole="login" ToRole="order_cars" />
         </EntityType>
         <EntityType Name="order_cars">
           <Key>
@@ -149,8 +149,8 @@
           <Property Name="car_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="car_price" Type="Double" Nullable="false" />
           <Property Name="time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="login" Relationship="Self.FK__order_car__user___403A8C7D" FromRole="order_cars" ToRole="login" />
-          <NavigationProperty Name="product" Relationship="Self.FK__order_car__car_i__412EB0B6" FromRole="order_cars" ToRole="products" />
+          <NavigationProperty Name="login" Relationship="Self.FK__order_car__user___5165187F" FromRole="order_cars" ToRole="login" />
+          <NavigationProperty Name="product" Relationship="Self.FK__order_car__car_i__52593CB8" FromRole="order_cars" ToRole="products" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -173,7 +173,7 @@
           <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="year" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="discount" Type="Int32" />
-          <NavigationProperty Name="order_cars" Relationship="Self.FK__order_car__car_i__412EB0B6" FromRole="products" ToRole="order_cars" />
+          <NavigationProperty Name="order_cars" Relationship="Self.FK__order_car__car_i__52593CB8" FromRole="products" ToRole="order_cars" />
         </EntityType>
         <EntityType Name="teammember">
           <Key>
@@ -187,7 +187,7 @@
           <Property Name="link1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="link2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <Association Name="FK__order_car__user___403A8C7D">
+        <Association Name="FK__order_car__user___5165187F">
           <End Role="login" Type="Self.login" Multiplicity="1" />
           <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__order_car__car_i__412EB0B6">
+        <Association Name="FK__order_car__car_i__52593CB8">
           <End Role="products" Type="Self.product" Multiplicity="1" />
           <End Role="order_cars" Type="Self.order_cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -217,11 +217,11 @@
           <EntitySet Name="order_cars" EntityType="Self.order_cars" />
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="teammembers" EntityType="Self.teammember" />
-          <AssociationSet Name="FK__order_car__user___403A8C7D" Association="Self.FK__order_car__user___403A8C7D">
+          <AssociationSet Name="FK__order_car__user___5165187F" Association="Self.FK__order_car__user___5165187F">
             <End Role="login" EntitySet="logins" />
             <End Role="order_cars" EntitySet="order_cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__order_car__car_i__412EB0B6" Association="Self.FK__order_car__car_i__412EB0B6">
+          <AssociationSet Name="FK__order_car__car_i__52593CB8" Association="Self.FK__order_car__car_i__52593CB8">
             <End Role="products" EntitySet="products" />
             <End Role="order_cars" EntitySet="order_cars" />
           </AssociationSet>

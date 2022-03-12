@@ -21,7 +21,7 @@ namespace carmax.Models
         {
             this.order_cars = new HashSet<order_cars>();
         }
-    
+
         public int id { get; set; }
         public string name { get; set; }
         public int price { get; set; }
@@ -39,7 +39,7 @@ namespace carmax.Models
         public string model { get; set; }
         public string year { get; set; }
         public Nullable<int> discount { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order_cars> order_cars { get; set; }
         [NotMapped]
