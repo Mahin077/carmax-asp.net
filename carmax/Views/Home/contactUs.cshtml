@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "contactUs";
+}
+
+<section>
+    <div class="content">
+        <h2 class="text-center text-break text-decoration-underline text-opacity-100 "style="color:tomato"><b>Contact Us</b></h2>
+
+    </div>
+</section>
+<section class="formPage h-50  mt-5">
+    <div class="row h-75 card-group rounded" style="background: linear-gradient(#bdc3c7,#2c3e50) ">
+        <div class="col-sm-6 my-auto">
+           
+                    <div class="address details card mb-2  text-center">
+                        <i class="fas fa-map-marker-alt" style="color:cadetblue"></i>
+                        <div class="topic fw-bold" style="color:tomato">Address</div>
+                        <div class="text-one ">215/4/A,Rampura</div>
+                        <div class="text-two ">Dhaka-1219</div>
+                    </div>
+                    <div class="phone details card mb-2  text-center">
+                        <i class="fas fa-phone-alt img-fluid" style="color:cadetblue"></i>
+                        <div class="topic fw-bold" style="color:tomato">Phone</div>
+                        <div class="text-one">01727298564</div>
+
+                    </div>
+                    <div class="email details card mb-2 text-center">
+                        <i class="fas fa-envelope" style="color:cadetblue"></i>
+                        <div class="topic fw-bold" style="color:tomato">Email</div>
+                        <div class="text-one">admin@gmail.com</div>
+
+                    </div>
+                    <div class="social-media text-center card ">
+                        <p class="fw-bold" style="color:tomato">Connect with us :</p>
+                        <div class="social-icons">
+                            <a target="_blank" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-f" style="color: #976FDC; text-decoration: none"></i>
+                            </a>
+                            <a target="_blank" href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D">
+                                <i class="fab fa-twitter" style="color: #976FDC; text-decoration: none "></i>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/accounts/login/">
+                                <i class="fab fa-instagram" style="color: #976FDC; text-decoration: none "></i>
+                            </a>
+                            <a target="_blank" href="https://www.linkedin.com/login">
+                                <i class="fab fa-linkedin-in" style="color: #976FDC; text-decoration: none "></i>
+                            </a>
+                        </div>
+                    </div>
+               
+        </div>
+        <div class="col-sm-6 my-auto ">
+            <div class="card rounded ">
+
+                <div class="card-body">
+                    <form action="/home/contactUs" method="POST">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">User Name:</label>
+                            <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="User Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Email address:</label>
+                            <input type="text" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label fw-bold">Message:</label>
+                            <textarea rows="6" type="text" name="message" class="form-control" id="exampleFormControlInput1" placeholder="Type Your Message" class="input"></textarea>
+                            
+                        </div>
+                        <div class="input-group d-flex justify-content-center" style="margin-top: 55px;">
+                            <button name="submit" class="btn btn-success btn-lg" style="width: 400px; background: linear-gradient(45deg, #1abc9c, #149279);">Send Us</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4 class="text-center fw-bold mt-5" style="color:tomato">Our Location</h4>
+    </div>
+   
+</section>
+<section>
+    <div class="card  mb-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.5386203568683!2d90.40448511429722!3d23.763826894181662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c77decb5f845%3A0xc2eadd2f3b867792!2sAhsanullah%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sbd!4v1633416800163!5m2!1sen!2sbd" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}

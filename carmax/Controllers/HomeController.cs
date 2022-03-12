@@ -73,6 +73,9 @@ namespace carmax.Controllers
                 {
                     Session["username"] = i.username;
                     Session["userType"] = i.type;
+                    Session["userid"] = i.id;
+                    Session["email"] = i.email;
+                    Session["phone"] = i.phone;
                 }
                 if (Session["userType"].Equals("admin"))
                 {
@@ -179,6 +182,32 @@ namespace carmax.Controllers
                 return Content("Your order has been placed");
             }
         }
+        [HttpPost]
+        public ActionResult contactUs(string name,string email,string message)
+        {
+            
+                contactu cn = new contactu();
+                cn.name = name;
+                cn.email = email;
+                cn.message = message;
+                db.contactus.Add(cn);
+                db.SaveChanges();
+                TempData["msg1"] = "Message sent!";
+                return RedirectToAction("contactUs");
+           
+           
+            
+        }
+        public ActionResult contactUs()
+        {
+            if (TempData["msg1"] != null)
+            {
+                ViewBag.Message = TempData["msg1"].ToString();
+            }
+            return View();
+        }
+
+
 
     }
 }
