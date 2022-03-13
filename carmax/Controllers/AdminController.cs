@@ -13,12 +13,12 @@ namespace carmax.Controllers
     public class AdminController : Controller
     {
         carmaxEntities1 db = new carmaxEntities1();
-        
+
         public ActionResult Index()
         {
             if (Session["userType"] != null && Session["userType"].Equals("admin"))
             {
-                return View("allCars",db.products.ToList());
+                return View("allCars", db.products.ToList());
             }
             return Content("Please log in as Admin to use the url!");
         }
@@ -28,9 +28,9 @@ namespace carmax.Controllers
             {
                 return View();
             }
-            return Content("Please log in as Admin to use the url!");   
+            return Content("Please log in as Admin to use the url!");
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Price,Max_power,Seating_capacity,Body_type,Fuel_type,No_of_cylinder,Color,Engine_type,Engine_displacement,Type,Image,Brand,Model,Year,Discount,File")] product car)
@@ -71,7 +71,7 @@ namespace carmax.Controllers
             }
             return Content("Please log in as Admin to use the url!");
 
-            
+
         }
 
         [HttpPost]
@@ -109,7 +109,7 @@ namespace carmax.Controllers
                 }
 
             }
-            return View("Edit",car);
+            return View("Edit", car);
         }
 
         public ActionResult Delete(int? id)
@@ -125,10 +125,10 @@ namespace carmax.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View("Delete",car);
+                return View("Delete", car);
             }
             return Content("Please log in as Admin to use the url!");
-            
+
         }
 
         [HttpPost, ActionName("Delete")]
@@ -161,10 +161,10 @@ namespace carmax.Controllers
             }
         }
         [HttpPost]
-       
-        public ActionResult carDetailsChange(int car_id,int user_id)
+
+        public ActionResult carDetailsChange(int car_id, int user_id)
         {
-            var user = db.order_cars.Where(s => s.user_id==user_id && s.car_id==car_id).FirstOrDefault();
+            var user = db.order_cars.Where(s => s.user_id == user_id && s.car_id == car_id).FirstOrDefault();
             user.details = "confirmed";
             db.Entry(user).State = EntityState.Modified;
             db.SaveChanges();

@@ -161,6 +161,10 @@ namespace carmax.Controllers
         }
         public ActionResult PostDetails(int _id)
         {
+            if (TempData["msg33"] != null)
+            {
+                ViewBag.Message = TempData["msg33"].ToString();
+            }
             product id = db.products.Find(_id);
             return View(id);
         }
@@ -190,7 +194,8 @@ namespace carmax.Controllers
                 ordr.details = "pending";
                 db.order_cars.Add(ordr);
                 db.SaveChanges();
-                return Content("Your order has been placed");
+                TempData["msg33"] = "Your order has been placed";
+                return RedirectToAction("PostDetails", new { _id = ordr.car_id });
             }
         }
         [HttpPost]

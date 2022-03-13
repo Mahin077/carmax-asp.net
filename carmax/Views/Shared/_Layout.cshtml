@@ -8,15 +8,16 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" href="~/Content/all.min.css">
     <link rel="stylesheet" href="~/Content/footer.css">
+    <script src="https://kit.fontawesome.com/664672c985.js" crossorigin="anonymous"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top:-50px">
+<body class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:-50px">
         <div class="container-fluid">
-            
-                <a class="navbar-brand" href="/home/Index">Carmax</a>
-           
+
+            <a class="navbar-brand" style="" href="/home/Index">Carmax</a>
+
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,125 +27,102 @@
 
                     @if (Session["userType"] != null && Session["userType"].Equals("admin"))
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/Create">Add Cars</a>
-                        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/Create">Add Cars</a>
+        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/Index">Show All</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/Order">Orders</a>
-                        </li>
-
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/home/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/Cars">Cars</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/SpecialOffers">Special offers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/contactUs">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/Team">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/About">About Us</a>
-                        </li>
-                    }
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/Order">Orders</a>
+                                        </li> }
+                                                    else
+                                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link fs-5 text-white" aria-current="page" href="/home/Index">Home</a>
+                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link fs-5 text-white" href="/home/Cars">Cars</a>
+                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link fs-5 text-white" href="/home/SpecialOffers">Special offers</a>
+                                                                        </li>
+                                                                                        <li class="nav-item">
+                                                                                            <a class="nav-link fs-5 text-white" href="/home/contactUs">Contact</a>
+                                                                                        </li>
+                                                                                                        <li class="nav-item">
+                                                                                                            <a class="nav-link fs-5 text-white" href="/home/Team">Team</a>
+                                                                                                        </li>
+                                                                                                                        <li class="nav-item">
+                                                                                                                            <a class="nav-link fs-5 text-white" href="/home/About">About Us</a>
+                                                                                                                        </li>}
                     @if (Session["username"] == null)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/Login">Sign In</a>
-                        </li>
-                    }
+        <li class="nav-item">
+
+            <a class="fs-5 btn btn-info text-black d-flex align-items-center" href="/home/Login">
+                <span><i class="fa-solid fa-arrow-right-to-bracket text-black me-2"></i></span>
+                Sign In
+            </a>
+        </li> }
                     else
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/Profile">@Session["username"]</a>
-                        </li>
-                    }
+        <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="/home/Profile">@Session["username"]</a>
+        </li>}
 
 
 
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class=" body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <footer class="footer">
-                <div class="l-footer">
-                    <h1>
-                        <img src="~/Images/logo.png" class="img-fluid rounded " style="max-width:20%;" alt="">
-                    </h1>
-                    <p><b style="color: red;">CarMax</b> is a family company, one that spans the globe and has shared ideals. We value service to each other and the world as much as to our customers.</p>
-                </div>
+        <footer class="footer text-center">
+            <div class="l-footer">
+                <h1>
+                    <img src="~/Images/logo.png" class="img-fluid rounded " style="max-width:20%;" alt="">
+                </h1>
+                <p><b style="color: red;">CarMax</b> is a family company, one that spans the globe and has shared ideals. We value service to each other and the world as much as to our customers.</p>
+            </div>
 
-                <ul class="r-footer">
-                    <li>
-                        <h2>Follow Us</h2>
-                        <ul class="box">
-
-
-
-
-
-                            <li><a target="_blank" href="https://www.facebook.com/"><i style="color:  #149279;" class="fab fa-facebook-f"></i> Facebook</a>
-                            <li><a target="_blank" href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"><i style="color:  #149279;" class="fab fa-twitter"></i> Twitter</a>
-                            <li><a target="_blank" href="https://www.instagram.com/accounts/login/"><i style="color:  #149279;" class="fab fa-instagram"></i> Instagram</a>
-                            <li><a target="_blank" href="https://www.linkedin.com/login"><i style="color:  #149279;" class="fab fa-linkedin-in"></i> Linkedin</a>
-
-
-
-                        </ul>
-                    </li>
-                    <li class="features">
-                        <h2>
-                            Quick Links
-                        </h2>
-                        <ul class="box h-box">
+            <ul class="r-footer">
+                <li>
+                    <h2>Follow Us</h2>
+                    <ul class="box">
+                        <li><a target="_blank" href="https://www.facebook.com/"><i style="color:  #149279;" class="fab fa-facebook-f"></i> Facebook</a>
+                        <li><a target="_blank" href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"><i style="color:  #149279;" class="fab fa-twitter"></i> Twitter</a>
+                        <li><a target="_blank" href="https://www.instagram.com/accounts/login/"><i style="color:  #149279;" class="fab fa-instagram"></i> Instagram</a>
+                        <li><a target="_blank" href="https://www.linkedin.com/login"><i style="color:  #149279;" class="fab fa-linkedin-in"></i> Linkedin</a>
+                    </ul>
+                </li>
+                <li class="features">
+                    <h2>
+                        Quick Links
+                    </h2>
+                    <ul class="box h-box">
 
 
-                            <li>
-                                <a href="/home/SpecialOffers">Special Offers</a>
-                            </li>
-                            <li>
-                                <a href="/home/About">About Us</a>
-                            </li>
-                            <li>
-                                <a href="/home/Team">Team</a>
-                            </li>
-                            <li>
-                                <a href="/home/Contact">Contact Us</a>
-                            </li>
+                        <li>
+                            <a href="/home/SpecialOffers">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="/home/About">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/home/Team">Team</a>
+                        </li>
+                        <li>
+                            <a href="/home/Contact">Contact Us</a>
+                        </li>
 
+                    </ul>
 
-                        </ul>
-
-                    </li>
-                </ul>
-
-
-
-
-
-
-
-                <p class="text-center">All rights reserved by <span><b style="color: red;">©CarMax </b></span>@DateTime.Now.Year </p>
-            </footer>
+                </li>
+            </ul>
+            <p class="text-center">All rights reserved by <span><b style="color: red;">©CarMax </b></span>@DateTime.Now.Year </p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

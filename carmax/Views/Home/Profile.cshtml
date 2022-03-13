@@ -1,7 +1,5 @@
 ﻿@model carmax.Models.login
-@{
-    ViewBag.Title = "Profile";
-}
+@{ ViewBag.Title = "Profile"; }
 
 
 
@@ -19,11 +17,11 @@
 
     </form>
 
-    <div class="container" style="width: 450px;text-align: center;margin-top:95px;margin-bottom:30px;height:570px;background-color:white;box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);border-radius:5px;">
+    <section class="container d-flex align-items-center justify-content-around mb-4">
         <!-- User Profile Card Section -->
-        <div class="card">
+        <div class="card border-0 shadow-lg p-3">
             <form action="/home/Profile" method="POST" class="">
-                <p class="login-text" style="font-size: 2rem; font-weight: 800;margin-top:20px;margin-bottom:55px;">User Profile </p>
+                <h2 class="login-text text-center">User Profile </h2>
                 <div class="input-group" style="margin-bottom: 30px;">
                     <label style="margin-right: 76px;margin-left:20px;font-size:20px;font-weight:bold;">Username<b style="color: red;">*</b></label>
                     <input style="border-radius: 5px;font-size:15px;font-weight:bold;" type="text" placeholder="Username" name="username" value="@Model.username" required>
@@ -50,27 +48,23 @@
 
             </form>
         </div>
-    </div>
-
-
-
-    @if (Session["userType"] != null && Session["userType"].Equals("normal"))
-    {
-        <div class="container">
-            <p>Previous ordered cars</p>
-            <a href="/home/previousOrderedCars">CLick here</a>
+        <div class="card border-0 rounded shadow-lg w-50 h-50 p-4">
+            @if (Session["userType"] != null && Session["userType"].Equals("normal"))
+            {
+<div class="container">
+    <h3>Check your ordered cars</h3>
+    <a href="/home/previousOrderedCars" class="btn btn-outline-primary mt-3">CLick here</a>
+</div>}
         </div>
-    }
-
+    </section>
 
 </body>
 
 
 @if (ViewBag.Message != null)
 {
-    <script type="text/javascript">
+<script type="text/javascript">
             window.onload = function () {
                 alert("@ViewBag.Message");
             };
-    </script>
-}
+</script>}
