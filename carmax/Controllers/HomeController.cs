@@ -20,6 +20,8 @@ namespace carmax.Controllers
 
             return View(car);
         }
+        [HttpGet]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult Register()
         {
             if(Session["username"] == null)
@@ -28,7 +30,7 @@ namespace carmax.Controllers
             }
             else
             {
-                return Content("The url does not exist");
+                return RedirectToAction("Index");
             }
         }
         [HttpPost]
@@ -98,6 +100,8 @@ namespace carmax.Controllers
                 return RedirectToAction("Login");
             }
         }
+        [HttpGet]
+        [OutputCache(NoStore =true,Duration =0, VaryByParam ="None")]
         public ActionResult Login()
         {
 
@@ -112,7 +116,7 @@ namespace carmax.Controllers
             }
             else
             {
-                return Content("The url does not exist");
+                return RedirectToAction("Index");
             }
 
 
@@ -213,7 +217,8 @@ namespace carmax.Controllers
             }
             return View();
         }
-
+        [HttpGet]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult Profile()
         {
             if (Session["userid"] != null)
